@@ -1,0 +1,65 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <div class="text-center">
+                
+                <img src="../../../assets/img/AELOGO.png" class="img-fluid custome-size">
+            </div>
+
+        </div> 
+        
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+
+            <h3>Botonera</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4>
+                        Status
+                    </h4>
+                    <div>
+                        <button type="button" class="btn btn-outline-info btn-block ">
+                            Conexión 
+                            <span class="badge bg-success">
+                                <i class="fas fa-wifi"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-outline-info btn-block">
+                            No enviados
+                            <span class="badge bg-success">
+                                4
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-6">
+            
+            <div class="card">
+                <div class="card-body">
+                        
+                        <button (click)="enviarMsj('ACTIVO')" type="button" class="btn btn-success btn-lg btn-block">ACTIVO</button>
+                        <button (click)="enviarMsj('F/OPER')" type="button" class="btn btn-danger btn-lg btn-block">FUERA DE OPERACION</button>
+                        <button (click)="enviarMsj('MATERIAL')" type="button" class="btn btn-info btn-lg btn-block">MATERIALES</button>
+                        <button (click)="enviarMsj('MANTTO')" type="button" class="btn btn-warning btn-lg btn-block">MANTENIMIENTO</button>
+                        <button (click)="enviarMsj('SOPORTE')" type="button" class="btn btn-dark btn-lg btn-block">SOPORTE</button>
+                        
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
