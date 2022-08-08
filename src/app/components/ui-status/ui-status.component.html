@@ -1,0 +1,48 @@
+<div class="card text-center">
+  <div class="card-header">
+    <h5 class="card-title">Status</h5>
+  </div>
+  <div class="card-body">
+    <div class="d-grid gap-1">
+
+      <button type="button" class="btn btn-success btn-sm">
+        <i class="bi bi-wifi"></i>
+        Server Online
+      </button>
+      <button type="button" class="btn btn-success btn-sm" *ngIf="uiServ.uiStatus.statusConn === 'CONNECTED'">
+        <i class="bi bi-wifi"></i>
+        Brocker Online
+      </button>
+      <button type="button" class="btn btn-warning btn-sm" *ngIf="uiServ.uiStatus.statusConn === 'CONNECTING'">
+        <i class="bi bi-router"></i>
+        Brocker Connecting
+      </button>
+      <button type="button" class="btn btn-danger btn-sm" *ngIf="uiServ.uiStatus.statusConn === 'DISCONNECTED'">
+        <i class="bi bi-wifi-off"></i>
+        Brocker Offline
+      </button>
+      <button type="button" class="btn btn-info btn-sm"*ngIf="uiServ.uiStatus.msgPublished === 'SENDING'">
+        <i class="bi bi-send"></i>
+        Sending Message...
+      </button>
+      <button type="button" class="btn btn-warning btn-sm"*ngIf="uiServ.uiStatus.msgPublished === 'CONFIRM'">
+        <i class="bi bi-hourglass"></i>
+        Waiting Confirmation
+      </button>
+      <button type="button" class="btn btn-success btn-sm"*ngIf="uiServ.uiStatus.msgPublished === 'PUBLISHED'">
+        <i class="bi bi-envelope-check"></i>
+        Message Published
+      </button>
+      <button type="button" class="btn btn-primary btn-sm">
+        <i class="bi bi-server"></i>
+        Stored Messages
+        <span class="badge text-bg-danger">
+          {{ msjsServ.totalStoredMsg }}
+        </span>
+      </button>
+  </div>
+  <div class="card-footer text-muted">
+    <!-- <h4>{{ uiServ.uiStatus.connected }}</h4> -->
+
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-12">
+    <br>
+      <div class="card" *ngIf="!loading">
+          <div class="card-body">
+
+            <h4 class="card-title" *ngIf="modifyStation">Modify</h4>
+            <h4 class="card-title" *ngIf="!modifyStation">Add</h4>
+            <h6 class="card-subtitle">Data station</h6>
+            <hr>
+
+            <form [formGroup]="stationForm" (submit)="save()">
+
+                <div class="mb-3">
+                  <div class="row">
+                    <div class="col-5">
+                        <label  class="form-label">Name</label>
+                        <input
+                            class="form-control"
+                            type="text"
+                            placeholder="Station name"
+                            formControlName="name"
+                            required
+                            [class.is-invalid]="stationForm.controls['name'].invalid && stationForm.controls['name'].touched"
+                            >
+                          <div class="alert alert-danger" role="alert" *ngIf="stationForm.controls['name'].invalid && stationForm.controls['name'].touched">
+                            ¡El nombre es obligatorio!
+                          </div>
+                    </div>
+
+                    <div class="col-5">
+                      <label class="form-label">Assigned to:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Station is not Assigned"
+                        aria-label="IP adress"
+                        formControlName="ip"
+                        readonly
+                        >
+
+                    </div>
+
+                    <div class="col">
+                      <br>
+                      <button type="button" class="btn btn-outline-primary btn-sm" *ngIf="!station.assigned" (click)="releaseOrAssign('ASSIGN')" [disabled]="!modifyStation"> Assign </button>
+                      <button type="button" class="btn btn-outline-success btn-sm" *ngIf="station.assigned" (click)="releaseOrAssign('RELEASE')"> Release </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    formControlName="description"></textarea>
+                </div>
+
+              <div class="mb-3">
+
+                <button
+                  type="submit"
+                  class="btn btn-outline-primary"
+                  >
+                  Save
+                </button>
+                <button type="button" class="btn btn-outline-primary" routerLink="/dashboard/stations">Cancel</button>
+              </div>
+            </form>
+          </div>
+      </div>
+  </div>
+</div>

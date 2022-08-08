@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  MQTT_SERVICE_OPTIONS: {
+    hostname: '10.8.2.102',
+    port: 15675,
+    path: '/ws',
+    username: 'aedev',
+    password: 'a3d3v'
+  },
+  MQTT_TOPIC: 'welbit/data/crio/andon',
+  URL_API: 'http://localhost:3200/api'
 };
 
 /*

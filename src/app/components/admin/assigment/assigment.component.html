@@ -1,0 +1,58 @@
+<div class="container-sm login-container">
+
+  <div class="row">
+
+    <div class="col text-center"  >
+      <img class="img-width" src="../../../assets/img/logo_header.png">
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <br><br>
+
+      <div class="alert alert-success" role="alert-danger">
+        <h4 class="alert-heading text-center">¡Dispositivo No asignado!</h4>
+        <p>La ip correspondiente a este dispositivo no ha sido asignada a ninguna estacion aun, consulte con el Administrador
+            del sistema. Los administradores son los unicos que puede realizar esta acción.</p>
+        <hr>
+        <h6>
+          <button type="button" class="btn btn-primary btn-sm" routerLink="/login">
+            Logout
+          </button>
+        </h6>
+
+        <br>
+        <div *ngIf="adminRole">
+
+          <h6> Asignar Estacion:</h6>
+          <form action="" #assignForm="ngForm" (ngSubmit)="assign(assignForm)">
+
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="station"
+              [(ngModel)]="stationSelected"
+              #station
+              required
+              >
+                <option value="NO_STATION" selected >SELECCIONE UNA ESTACION</option>
+                <option *ngFor="let station of stationsAvailables" [value]="station.sid">{{ station.name }}</option>
+            </select>
+            <br>
+
+            <p class="text-center">
+              <button
+              type="submit"
+              class="btn btn-primary btn-sm">
+              Assign
+            </button>
+          </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

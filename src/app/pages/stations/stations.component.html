@@ -1,0 +1,103 @@
+<div class="row animated fadeIn fast">
+  <div class="col-12">
+      <div class="card">
+          <div class="card-body">
+              <input  type="text"
+                      class="form-control"
+                      placeholder="Buscar Estación..."
+                      (keyup)="searchStation(textBuscar.value)"
+                      #textBuscar>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn fast" *ngIf="cargando">
+  <div class="col-12">
+      <div class="alert alert-info text-center">
+          <h4 class="alert-heading">Cargando</h4>
+          <i class="fa fa-spin fa-refresh fa-2x"></i>
+          <p class="mb-0">Por favor espere</p>
+
+      </div>
+
+  </div>
+</div>
+
+
+<div class="row animated fadeIn fast" *ngIf="!cargando">
+  <div class="col-12">
+  <div class="card">
+      <div class="card-body">
+          <h4 class="card-title">Total stations ({{ total }})</h4>
+          <h6 class="card-subtitle">Registered stations</h6>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-outline-success" [routerLink]="['/dashboard','station', 'nuevo']" >Add New</button>
+                <button class="btn btn-outline-success" routerLink="/dashboard" >Back</button>
+          </div>
+          <!-- <div class="table-responsive"> -->
+            <table class="table table-hover">
+                  <thead>
+                      <tr>
+                          <th class="w100">Name</th>
+                          <th>Description</th>
+                          <th class="w100">Assigment</th>
+                          <th class="w100">IP Adress</th>
+                          <!-- <th class="w100">Auth</th> -->
+                          <th class="w100">Options</th>
+                          <!-- <th class="text-nowrap">Action</th> -->
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let station of stations">
+                          <td class="w100"> {{ station.name }} </td>
+                          <td> {{ station.description }} </td>
+                          <td class="w100">
+                            <button type="button" class="btn btn-outline-primary btn-sm" *ngIf="!station.assigned" (click)="releaseOrAssign('ASSIGN', station)"> Assign </button>
+                            <button type="button" class="btn btn-outline-success btn-sm" *ngIf="station.assigned" (click)="releaseOrAssign('RELEASE', station)"> Release </button>
+                          </td>
+                          <td class="w100"> {{ station.ip }} </td>
+                          <td class="text-nowrap text-center">
+
+                          <button
+                          class="btn btn-outline-primary"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Edit"
+                          [routerLink]="['/dashboard', 'station', station.sid]"
+                          >
+                           <i class="bi bi-pencil-square"></i>
+                          </button>
+                          <button
+                          class="btn btn-outline-primary"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Delete"
+                          (click)="delete( station )"
+                          >
+                           <i class="bi bi-trash"></i>
+                          </button>
+                          </td>
+                      </tr>
+                  </tbody>
+            </table>
+          <!-- </div> -->
+          <div *ngIf="textBuscar.value.length===0">
+
+              <button (click)="cambiarPagina(-5)" class="btn btn-secondary">
+                <i class="bi bi-arrow-left-square"></i>
+                Back
+            </button>
+            &nbsp;
+            <button (click)="cambiarPagina(5)" class="btn btn-secondary">
+                Next
+                <i class="bi bi-arrow-right-square"></i>
+            </button>
+          </div>
+
+      </div>
+  </div>
+  </div>
+
+</div>

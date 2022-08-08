@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+.img-width {
+  width: 40%;
+}
+
+.img2-width {
+  width: 30%;
+}
+
+.btn-height {
+  height: 120%;
+}
+
+.logo-container, .login-container {
+  padding-top: 5%;
+}
+
+.btn-container {
+  padding-top: 3%;
+}
+
+.w-100 {
+  width: 50px;
+}
+
+.w-140 {
+  width: 140px;
+}
+
+.custom-tooltip {
+  --bs-tooltip-bg: var(--bs-primary);
+}

@@ -1,0 +1,42 @@
+<nav class="navbar " style="background-color: #e3f2fd;">
+
+  <div class="container-fluid">
+
+  <div class="navbar-brand">
+    <img src="../../../assets/img/logo_chico.png" alt="" width="45" height="24" class="d-inline-block align-text-top">
+    Digital-B
+  </div>
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-gear"></i>
+        {{ user_role }}
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><button
+          class="dropdown-item"
+          type="button"
+          routerLink="./users"
+          *ngIf="user_role==='Admin'">
+          Users</button></li>
+        <li><button
+          class="dropdown-item"
+          type="button"
+          routerLink="./stations"
+          *ngIf="user_role==='Admin'">
+          Stations</button></li>
+        <li><button
+          class="dropdown-item"
+          type="button"
+          (click)="changePassword()">
+          Password</button></li>
+        <li><button
+          class="dropdown-item"
+          type="button"
+          (click)="logout()">
+          Logout</button></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>

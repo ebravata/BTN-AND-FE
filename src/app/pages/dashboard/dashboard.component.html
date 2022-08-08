@@ -1,0 +1,82 @@
+
+
+
+
+      <div class="card">
+        <div class="card-header">
+
+          <h5 class="card-title text-center">Estación {{station.name}} </h5>
+
+        </div>
+
+        <div class="card-body">
+
+          <div class="d-grid gap-3">
+            <button
+              class="btn btn-outline-success btn-lg btn-height"
+              [class.active]="(activeBtn==='ACTIVE')"
+              [disabled]="((activeBtn!='ACTIVE') && !inactive)"
+              type="button"
+              (click)="getActive()"
+              >
+              ACTIVO
+            </button>
+
+            <button
+              class="btn btn-outline-warning btn-lg btn-height"
+              [class.active]="(activeBtn==='OFF')"
+              [disabled]="((activeBtn!='OFF') && inactive)"
+              type="button"
+              (click)="getOff()"
+              >
+              APAGADO
+            </button>
+            <button
+              class="btn btn-outline-primary btn-lg btn-height"
+              [class.active]="(activeBtn==='MATERIALS')"
+              [disabled]="((activeBtn!='MATERIALS') && inactive)"
+              type="button"
+              (click)="materials()"
+              >
+              MATERIALES
+            </button>
+            <button
+              class="btn btn-outline-dark btn-lg btn-height"
+              [class.active]="(activeBtn==='MTTO')"
+              [disabled]="((activeBtn!='MTTO') && inactive)"
+              type="button"
+              (click)="maintenance()"
+              >
+              MANTENIMIENTO
+            </button>
+            <button
+              class="btn btn-outline-danger btn-lg btn-height"
+              [class.active]="(activeBtn==='SUPPORT')"
+              [disabled]="((activeBtn!='SUPPORT') && inactive)"
+              type="button"
+              (click)="support()"
+              >
+              SOPORTE
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <br><br>
+  <div class="row justify-content-center" *ngIf="inactive">
+
+    <div class="col-6 text-center"  >
+
+      <div class="card text-bg-secondary" >
+        <div class="card-header">{{ statusTitle }}</div>
+        <div class="card-body">
+
+          <h1> {{ timer }} </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+
+
